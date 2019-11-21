@@ -1,4 +1,7 @@
+DROP DATABASE IF EXISTS cowlist;
+
 CREATE DATABASE cowlist;
+
 
 USE cowlist;
 

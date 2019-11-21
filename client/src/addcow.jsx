@@ -35,7 +35,7 @@ class AddCow extends React.Component {
     render(props) {
       return (
         <div>
-          <h2>Create New Cow</h2>
+          <h3>Create New Cow</h3>
           <form>
             <input
             type = "text"
