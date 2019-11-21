@@ -1,6 +1,6 @@
 import React from 'react';
 import Showcase from './showcase.jsx';
-import AddCow from './addcow';
+import AddCow from './addcow.jsx';
 import Herd from './herd.jsx';
 import axios from 'axios';
 
@@ -20,7 +20,7 @@ class CowList extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/api/cows',
+      url: '/api/cowlist',
       responseType: 'application/json'
     })
 
@@ -36,7 +36,7 @@ class CowList extends React.Component {
   postCows() {
     return axios({
       method: 'post',
-      url: '/api/cows',
+      url: '/api/cowlist',
       data: {
         "cowname": "" /* populates from user input */,
         "descript": "" /* populates from user input */
@@ -55,7 +55,7 @@ class CowList extends React.Component {
   setShowcaseCow(e, id, descript) {
     console.log(e, id, descript);
     this.setState({showcaseCowId: id})
-    this.setState({showcaseCowDescription: descript})
+    this.setState({showcaseCowDescript: descript})
   }
 
   render() {
@@ -64,7 +64,7 @@ class CowList extends React.Component {
         <h1 style={{textAlign: "center"}}>Cow List</h1>
         <Showcase
         cowId={this.state.showcaseCowId}
-        cowDescript={this.state.showcaseCowDescription}
+        cowDescript={this.state.showcaseCowDescript}
         />
         <AddCow
         handleSubmit={this.handleSubmit}

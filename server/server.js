@@ -10,7 +10,7 @@ var parser = require('body-parser');
 const connection = mysql.createConnection( {
   user: 'root',
   password: 'rcabrera',
-  database: 'cows'
+  database: 'cowlist'
 });
 
 connection.connect(function (err) {
@@ -31,7 +31,7 @@ app.use(parser.urlencoded( {
 }));
 app.use(parser.json())
 
-app.get('/api/cows', (req, res) => {
+app.get('/api/cowlist', (req, res) => {
   connection.query('select * from herd', function(err, result) {
     if (err) {
       console.log(`query error=${err}`);
@@ -41,7 +41,7 @@ app.get('/api/cows', (req, res) => {
   })
 });
 
-app.post('/api/cows', (req, res) => {
+app.post('/api/cowlist', (req, res) => {
   console.log(`POST req received ${req.body}`)
   var param = [req.body.cowname, req.body.descipt];
   var queryString = 'INSERT INTO herd(cowname, descript) VALUES (?, ?)';

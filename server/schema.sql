@@ -1,6 +1,6 @@
-CREATE DATABASE cows;
+CREATE DATABASE cowlist;
 
-USE cows;
+USE cowlist;
 
 CREATE TABLE herd (
   id int NOT NULL AUTO_INCREMENT,
